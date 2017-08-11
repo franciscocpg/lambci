@@ -29,7 +29,7 @@ function runBuild(buildData, context, cb) {
   }, function(err, data) {
     if (err) return cb(err)
 
-    if (data.retry) {
+    if (data.retry && !process.env.FORCE_BUILD) {
       log.info(`Ignoring retry request for build #${data.retry.buildNum}`)
       return cb() // TODO: Ensure Github/Slack statuses are 'finished' too?
     }
@@ -55,6 +55,7 @@ function cloneAndBuild(build, cb) {
 
     // Now that we've cloned the repository we can check for config files
     build.config = config.prepareBuildConfig(build)
+    log.info(`Build config ${JSON.stringify(build.config, null, 2)}`);
 
     if (!build.config.build) {
       log.info('config.build set to false – not running build')

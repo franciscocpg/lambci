@@ -62,7 +62,7 @@ exports.DEFAULT_CONFIG = {
   s3PublicSecretNames: true,
   inheritSecrets: true,
   allowConfigOverrides: true,
-  clearTmp: true,
+  clearTmp: typeof process.env.CLEAR_TMP === 'undefined' ? true : process.env.CLEAR_TMP === 'true',
   git: {
     depth: 5,
   },

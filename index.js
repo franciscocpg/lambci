@@ -9,6 +9,8 @@ exports.handler = function(event, context, cb) {
 
   log.init(`LambCI v${config.VERSION} triggered on stack "${config.STACK}"\n`) // STACK is usually 'lambci'
 
+  log.info(`Event ${JSON.stringify(event, null, 2)}`);
+
   // Check if it's the CloudFormation stack calling us
   if (event.ResourceType == 'Custom::ConfigUpdater') {
 
@@ -43,7 +45,6 @@ function snsBuild(snsEvent, context, cb) {
 
     if (buildData.ignore) {
       log.info(buildData.ignore)
-      log.info('Not running build')
       return done()
     }
 
