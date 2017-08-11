@@ -45,6 +45,7 @@ function snsBuild(snsEvent, context, cb) {
 
     if (buildData.ignore) {
       log.info(buildData.ignore)
+      log.info('Not running build')
       return done()
     }
 
