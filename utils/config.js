@@ -108,6 +108,7 @@ exports.prepareBuildConfig = function(build) {
       LAMBCI_CHECKOUT_BRANCH: build.checkoutBranch,
       LAMBCI_COMMIT: build.commit,
       LAMBCI_PULL_REQUEST: build.prNum || '',
+      LAMBCI_IS_TAG_BUILD: build.event.ref.startsWith('refs/tags/'),
       AWS_REQUEST_ID: build.requestId,
     },
   }
@@ -163,7 +164,10 @@ function resolveBranchConfig(build) {
       branches = branches || {}
       configObj = branches[build.branch]
       if (configObj == null) {
-        key = Object.keys(branches).find(branch => {
+        key = Object.keys(branches).find(branchRegex => {
+          var isTag = branchRegex.startsWith('tags/');
+          var branch = isTag ? branchRegex.substring(4) : branchRegex;
+
           var match = branch.match(/^!?\/(.+)\/$/)
           if (!match) return false
           var keyMatches = new RegExp(match[1]).test(build.branch)

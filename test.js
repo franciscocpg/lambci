@@ -28,7 +28,7 @@ const snsEvent = JSON.parse(`{
   }`);
 
 const githubEvent = `{
-    "ref": "refs/tags/v0.0.1",
+    "ref": "refs/tags/v0.0.3",
     "before": "0000000000000000000000000000000000000000",
     "after": "9d99947322caf921878e1622991b0d4d9125dbb3",
     "created": true,
@@ -38,7 +38,7 @@ const githubEvent = `{
     "compare": "https://github.com/franciscocpg/test/compare/v0.0.1",
     "commits": [],
     "head_commit": {
-      "id": "9d99947322caf921878e1622991b0d4d9125dbb3",
+      "id": "5c2449e2be22680c2010c345c0643b474ac8a195",
       "tree_id": "9601009eb66f51846376e8de4e10031c24379fdc",
       "distinct": true,
       "message": " Testing patterns",
