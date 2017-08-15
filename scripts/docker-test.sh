@@ -7,4 +7,4 @@ docker run --rm -it \
 -e FORCE_BUILD=true \
 -e CLEAR_TMP=false \
 lambci \
-bash -c "AWS_REGION='us-east-1' node test"
+bash -c "AWS_REGION='us-east-1' node test $1 $2"

@@ -1,0 +1,85 @@
+{
+  "ref": "refs/heads/v0.0.3",
+  "before": "0000000000000000000000000000000000000000",
+  "after": "9d99947322caf921878e1622991b0d4d9125dbb3",
+  "created": true,
+  "deleted": false,
+  "forced": false,
+  "base_ref": "refs/heads/master",
+  "compare": "https://github.com/franciscocpg/test/compare/v0.0.1",
+  "commits": [],
+  "head_commit": {
+    "id": "5c2449e2be22680c2010c345c0643b474ac8a195",
+    "tree_id": "9601009eb66f51846376e8de4e10031c24379fdc",
+    "distinct": true,
+    "message": " Testing patterns",
+    "timestamp": "2017-08-11T13:25:31-03:00",
+    "author": {
+      "name": "Francisco Guimarães",
+      "email": "francisco.cpg@gmail.com",
+      "username": "franciscocpg"
+    },
+    "committer": {
+      "name": "Francisco Guimarães",
+      "email": "francisco.cpg@gmail.com",
+      "username": "franciscocpg"
+    },
+    "added": [],
+    "removed": [],
+    "modified": [
+      ".lambci.js"
+    ]
+  },
+  "repository": {
+    "id": 88074563,
+    "name": "test",
+    "full_name": "franciscocpg/test",
+    "owner": {
+      "name": "franciscocpg",
+      "email": "francisco.cpg@gmail.com",
+      "login": "franciscocpg",
+      "id": 3680556,
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3680556?v=4",
+      "gravatar_id": "",
+      "type": "User",
+      "site_admin": false
+    },
+    "private": false,
+    "description": null,
+    "fork": false,
+    "created_at": 1492015274,
+    "updated_at": "2017-08-11T14:55:36Z",
+    "pushed_at": 1502474128,
+    "clone_url": "https://github.com/franciscocpg/test.git",
+    "homepage": null,
+    "size": 2,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "language": "JavaScript",
+    "has_issues": true,
+    "has_projects": true,
+    "has_downloads": true,
+    "has_wiki": true,
+    "has_pages": false,
+    "forks_count": 0,
+    "open_issues_count": 0,
+    "forks": 0,
+    "open_issues": 0,
+    "watchers": 0,
+    "default_branch": "master",
+    "stargazers": 0,
+    "master_branch": "master"
+  },
+  "pusher": {
+    "name": "franciscocpg",
+    "email": "francisco.cpg@gmail.com"
+  },
+  "sender": {
+    "login": "franciscocpg",
+    "id": 3680556,
+    "avatar_url": "https://avatars1.githubusercontent.com/u/3680556?v=4",
+    "gravatar_id": "",
+    "type": "User",
+    "site_admin": false
+  }
+}
