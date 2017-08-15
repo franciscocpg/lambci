@@ -28,7 +28,7 @@ const snsEvent = JSON.parse(`{
   }`);
 
 const githubEvent = `{
-    "ref": "refs/tags/v0.0.3",
+    "ref": "refs/heads/v0.0.3",
     "before": "0000000000000000000000000000000000000000",
     "after": "9d99947322caf921878e1622991b0d4d9125dbb3",
     "created": true,

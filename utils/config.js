@@ -98,6 +98,7 @@ exports.initConfig = function(configs, build) {
 
 // Add build-specific env vars and resolve file configs
 exports.prepareBuildConfig = function(build) {
+  build.isTagBuild = build.event.ref.startsWith('refs/tags/')
   var buildConfig = {
     env: {
       CI: true,
@@ -108,7 +109,7 @@ exports.prepareBuildConfig = function(build) {
       LAMBCI_CHECKOUT_BRANCH: build.checkoutBranch,
       LAMBCI_COMMIT: build.commit,
       LAMBCI_PULL_REQUEST: build.prNum || '',
-      LAMBCI_IS_TAG_BUILD: build.event.ref.startsWith('refs/tags/'),
+      LAMBCI_IS_TAG_BUILD: build.isTagBuild,
       AWS_REQUEST_ID: build.requestId,
     },
   }
@@ -164,15 +165,16 @@ function resolveBranchConfig(build) {
       branches = branches || {}
       configObj = branches[build.branch]
       if (configObj == null) {
-        key = Object.keys(branches).find(branchRegex => {
-          var isTag = branchRegex.startsWith('tags/');
-          var branch = isTag ? branchRegex.substring(4) : branchRegex;
+        key = Object.keys(branches)
+          .filter(branchRegex => build.isTagBuild ? branchRegex.startsWith('tags/') : !branchRegex.startsWith('tags/'))
+          .find(branchRegex => {
+            var branch = build.isTagBuild ? branchRegex.substring(4) : branchRegex;
 
-          var match = branch.match(/^!?\/(.+)\/$/)
-          if (!match) return false
-          var keyMatches = new RegExp(match[1]).test(build.branch)
-          return branch[0] == '!' ? !keyMatches : keyMatches
-        })
+            var match = branch.match(/^!?\/(.+)\/$/)
+            if (!match) return false
+            var keyMatches = new RegExp(match[1]).test(build.branch)
+            return branch[0] == '!' ? !keyMatches : keyMatches
+          })
         configObj = branches[key]
       }
     }
