@@ -55,7 +55,7 @@ function cloneAndBuild(build, cb) {
 
     // Now that we've cloned the repository we can check for config files
     build.config = config.prepareBuildConfig(build)
-    log.info(`Build config ${JSON.stringify(build.config, null, 2)}`);
+    process.stdout.write(`Build config ${JSON.stringify(build.config, null, 2)}`);
 
     if (!build.config.build) {
       log.info('config.build set to false – not running build')

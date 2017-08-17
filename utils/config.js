@@ -230,6 +230,10 @@ function resolveFileConfig(build) {
     }, {})
   }
 
+  if (typeof fileConfig.pullRequests === 'boolean') {
+    build.config.pullRequests = fileConfig.pullRequests
+  }
+
   return utils.merge(Object.create(null), build.config, fileConfig)
 }
 

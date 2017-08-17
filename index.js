@@ -9,7 +9,7 @@ exports.handler = function(event, context, cb) {
 
   log.init(`LambCI v${config.VERSION} triggered on stack "${config.STACK}"\n`) // STACK is usually 'lambci'
 
-  log.info(`Event ${JSON.stringify(event, null, 2)}`);
+  process.stdout.write(`Event ${JSON.stringify(event, null, 2)}`);
 
   // Check if it's the CloudFormation stack calling us
   if (event.ResourceType == 'Custom::ConfigUpdater') {
